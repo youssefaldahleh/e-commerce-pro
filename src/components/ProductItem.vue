@@ -4,15 +4,16 @@
       <p class="boom">Boom >></p>
       <button class="close">X</button>
     </div>
-    <p>Your Cart</p>
+    <p>Porduct Details</p>
     <div class="carts">
       <div v-for="chosen in chosenPorduct" :key="chosen.id" class="cart">
-        <P>{{ chosen.name }}</P>
-        <input type="number" v-model="chosen.quantity" />
-        <p>BRL {{ chosen.quantity * chosen.price }}.00</p>
+        <P>{{ chosen.description }}</P>
+        <P>{{ chosen.title }}</P>
+        <img class="img" :src="chosen.image" alt="Porduct image" />
+        <p>JD {{ chosen.price }}.00</p>
         <ClearIcon @click="clear(chosen.id)"></ClearIcon>
       </div>
-      <p class="total">Total Amount BRL {{ totalAmount }}.00</p>
+      <p class="total">Total Amount JD {{ totalAmount }}.00</p>
     </div>
   </div>
 </template>
@@ -45,8 +46,6 @@ export default {
       // this.ProductList.pop(chosen);
       const productindex = this.ProductList.findIndex((prod) => prod.id === id);
       this.ProductList.splice(productindex, 1);
-      console.log(this.chosenPorduct.length);
-      console.log(this.ProductList);
     },
   },
 };
@@ -64,6 +63,10 @@ export default {
   border-radius: 12px;
   padding: 10px;
   margin-bottom: 10px;
+}
+.img {
+  width: 100px;
+  height: 100px;
 }
 .cart p {
   width: 200px;

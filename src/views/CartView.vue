@@ -1,11 +1,11 @@
 <template>
-  <CartList></CartList>
+  <ProductItem></ProductItem>
 </template>
 <script>
-import CartList from "@/components/CartList.vue";
+import ProductItem from "@/components/ProductItem.vue";
 export default {
   components: {
-    CartList,
+    ProductItem,
   },
 };
 </script>
